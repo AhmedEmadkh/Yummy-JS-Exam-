@@ -1,0 +1,22 @@
+/* xs */
+@media all and (min-width: 0px) and (max-width: 600px) {
+}
+
+/* sm */
+@media all and (min-width: 601px) and (max-width: 768px) {
+}
+
+/* md */
+
+@media all and (min-width: 769px) and (max-width: 991px) {
+}
+
+/* lg */
+
+@media all and (min-width: 992px) and (max-width: 1200px) {
+}
+
+/* xl */
+
+@media all and (min-width: 1201px) {
+}
