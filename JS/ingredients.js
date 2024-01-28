@@ -16,21 +16,22 @@
     });
   }
 // **********************************************************
-// Display meals with the same category
-async function displayMealsByCategory(categoryId) {
+
+async function getIngredientsMeals(ingredient) {
   showLoadingScreen();
 
   try {
-    const responseMeals = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryId}`);
-    const dataMeals = await responseMeals.json();
+    const responseMeals = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`);
+    const dataMealsForIngredient = await responseMeals.json();
 
-    if (dataMeals && dataMeals.meals && dataMeals.meals.length > 0) {
+    if (dataMealsForIngredient && dataMealsForIngredient.meals && dataMealsForIngredient.meals.length > 0) {
       let cartoona = ``;
 
-      // Limit the loop to the first 20 meals
-      const maxMeals = Math.min(dataMeals.meals.length, 20);
+      // Limit the number of displayed meals to a maximum of 20
+      const maxMeals = Math.min(dataMealsForIngredient.meals.length, 20);
+
       for (let i = 0; i < maxMeals; i++) {
-        const meal = dataMeals.meals[i];
+        const meal = dataMealsForIngredient.meals[i];
         let box = `
           <div class="col-md-3 col-sm-6">
             <div class="meal position-relative rounded-2 overflow-hidden" data-id="${meal.idMeal}">

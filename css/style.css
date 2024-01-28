@@ -96,6 +96,7 @@ body {
 
 .loading-screen {
   z-index: 9999999999999999;
+  width: calc(100% - 61px);
 }
 /* **************************************************************** */
 .side-nav-menu {
@@ -122,6 +123,9 @@ body {
   top: 300px;
   opacity: 0;
 }
+.nav-header, .side-nav-menu,.nav-tab {
+  height: 100vh;
+}
 .nav-header i {
   cursor: pointer;
 }
@@ -145,9 +149,16 @@ body {
 .form-control::placeholder{
   color: white;
 }
+.contact::placeholder{
+  color: black;
+}
+
 .inner-loading-screen{
   background-color: #0d0d0d;
   z-index: 9;
   top: 180px;
   display: none;
+}
+.cursor-pointer{
+  cursor: pointer;
 }

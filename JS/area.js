@@ -16,21 +16,22 @@
     });
   }
 // **********************************************************
-// Display meals with the same category
-async function displayMealsByCategory(categoryId) {
+async function getAreaMeals(areaName) {
   showLoadingScreen();
 
   try {
-    const responseMeals = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryId}`);
-    const dataMeals = await responseMeals.json();
+    const responseMeals = await fetch(
+      `https://www.themealdb.com/api/json/v1/1/filter.php?a=${areaName}`
+    );
+    const dataMealsForArea = await responseMeals.json();
 
-    if (dataMeals && dataMeals.meals && dataMeals.meals.length > 0) {
+    if (dataMealsForArea && dataMealsForArea.meals && dataMealsForArea.meals.length > 0) {
       let cartoona = ``;
 
       // Limit the loop to the first 20 meals
-      const maxMeals = Math.min(dataMeals.meals.length, 20);
+      const maxMeals = Math.min(dataMealsForArea.meals.length, 20);
       for (let i = 0; i < maxMeals; i++) {
-        const meal = dataMeals.meals[i];
+        const meal = dataMealsForArea.meals[i];
         let box = `
           <div class="col-md-3 col-sm-6">
             <div class="meal position-relative rounded-2 overflow-hidden" data-id="${meal.idMeal}">
@@ -54,3 +55,4 @@ async function displayMealsByCategory(categoryId) {
     hideLoadingScreen();
   }
 }
+
