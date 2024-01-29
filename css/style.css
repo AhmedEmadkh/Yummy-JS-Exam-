@@ -125,6 +125,7 @@ body {
 }
 .nav-header, .side-nav-menu,.nav-tab {
   height: 100vh;
+  z-index: 9999999999999999999999;
 }
 .nav-header i {
   cursor: pointer;
@@ -142,6 +143,9 @@ body {
 .content {
   width: calc(100% - 120px);
   margin: auto;
+}
+input{
+  width: 100%;
 }
 .meal:hover .meal-layer {
   top: 0;
