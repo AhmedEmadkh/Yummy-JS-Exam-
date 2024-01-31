@@ -7,6 +7,7 @@ function showLoadingScreen() {
       $("body").css("overflow", "hidden");
     });
   });
+  console.log("Outer loading screen showing");
 }
 
 // Function to hide the loading screen
@@ -16,6 +17,7 @@ function hideLoadingScreen() {
       $("body").css("overflow", "auto");
     });
   });
+  console.log("Outer loading screen hidding");
 }
 // **********************************************************
 // Nav Animation
@@ -374,6 +376,4 @@ function showContactForm() {
 
   newRow.innerHTML = contactFormHTML;
   document.getElementById("container").appendChild(newRow);
-
-  // You may want to initialize any form-related functionality here
 }

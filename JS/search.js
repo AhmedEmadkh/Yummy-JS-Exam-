@@ -10,8 +10,8 @@ function showSearch() {
   });
 }
 showSearch();
-// Function to show the Inner loading screen
-function showLoadingScreen() {
+// Function to show the inner loading screen
+function showInnerLoadingScreen() {
   $(".inner-loading-screen .loader").fadeIn(0, function () {
     $(".inner-loading-screen").fadeIn(0, function () {
       $("body").css("overflow", "hidden");
@@ -20,20 +20,21 @@ function showLoadingScreen() {
   console.log("Showing");
 }
 
-// Function to hide the loading screen
-function hideLoadingScreen() {
+// Function to hide the inner loading screen
+function hideInnerLoadingScreen() {
   $(".inner-loading-screen .loader").fadeOut(1000, function () {
     $(".inner-loading-screen").fadeOut(1000, function () {
       $("body").css("overflow", "auto");
     });
   });
-  console.log("hidding");
+  console.log("Hiding");
 }
+
 // ****************************************************************
 // Search By Name
 hideLoadingScreen();
 async function searchByName(mealName) {
-  showLoadingScreen(); // Show loading screen when starting to fetch data
+  showInnerLoadingScreen(); // Show loading screen when starting to fetch data
 
   try {
     // Fetch data
@@ -66,13 +67,13 @@ async function searchByName(mealName) {
   } catch (error) {
     console.error("Error fetching data:", error);
   } finally {
-    hideLoadingScreen(); // Hide loading screen after data is processed
+    hideInnerLoadingScreen(); // Hide loading screen after data is processed
   }
 }
 // ****************************************************************
 // Search Wit One Letter
 async function searchByFLetter(mealFletter) {
-  showLoadingScreen(); // Show loading screen when starting to fetch data
+  showInnerLoadingScreen(); // Show loading screen when starting to fetch data
 
   try {
     // Fetch data
@@ -105,12 +106,12 @@ async function searchByFLetter(mealFletter) {
   } catch (error) {
     console.error("Error fetching data:", error);
   } finally {
-    hideLoadingScreen(); // Hide loading screen after data is processed
+    hideInnerLoadingScreen(); // Hide loading screen after data is processed
   }
 }
 
 async function displayDetails(id) {
-  showLoadingScreen();
+  showInnerLoadingScreen();
 
   try {
     const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
@@ -165,10 +166,10 @@ async function displayDetails(id) {
       </div>
     `;
   
-    hideLoadingScreen();
+    hideInnerLoadingScreen();
   } catch (error) {
     console.error("Error fetching details:", error);
-    hideLoadingScreen();
+    hideInnerLoadingScreen();
   }
 }
 $(document).on("click", ".meal", async function () {
